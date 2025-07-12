@@ -1,0 +1,151 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "croppy"
+version = "1.0.0"
+description = "A modern, cross-platform image viewer and cropper with adaptive theming"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Bhupender Kaushal", email = "bhupenderkaushal5@gmail.com"}
+]
+maintainers = [
+    {name = "Bhupender Kaushal", email = "bhupenderkaushal5@gmail.com"}
+]
+keywords = ["image", "viewer", "cropper", "tkinter", "gui", "cross-platform", "photo", "editing"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Multimedia :: Graphics :: Viewers",
+    "Topic :: Multimedia :: Graphics :: Graphics Conversion",
+    "Topic :: Software Development :: User Interfaces",
+    "Environment :: X11 Applications",
+    "Environment :: Win32 (MS Windows)",
+    "Environment :: MacOS X",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "Pillow>=10.0.0,<13.0.0",
+]
+
+[project.scripts]
+croppy = "croppy.main:main"
+
+[project.gui-scripts]
+croppy-gui = "croppy.main:main"
+
+[project.optional-dependencies]
+dev = [
+    "black>=23.0.0",
+    "mypy>=1.5.0",
+    "flake8>=6.0.0",
+    "pytest>=7.0.0",
+]
+windows = [
+    "pywin32>=306; sys_platform=='win32'",
+]
+
+[project.urls]
+Homepage = "https://github.com/bhupenderkaushal/croppy"
+Documentation = "https://github.com/bhupenderkaushal/croppy#readme"
+Repository = "https://github.com/bhupenderkaushal/croppy.git"
+"Bug Tracker" = "https://github.com/bhupenderkaushal/croppy/issues"
+Changelog = "https://github.com/bhupenderkaushal/croppy/blob/main/CHANGELOG.md"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["croppy*"]
+exclude = ["tests*", "docs*"]
+
+[tool.setuptools.package-data]
+croppy = ["*.py", "py.typed"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+Repository = "https://github.com/yourusername/image-viewer-cropper.git"
+"Bug Tracker" = "https://github.com/yourusername/image-viewer-cropper/issues"
+
+[project.scripts]
+image-viewer = "run:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["*.py"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+include = '\.pyi?$'
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = ["E203", "W503"]
+per-file-ignores = [
+    "__init__.py:F401",
+]

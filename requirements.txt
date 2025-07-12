@@ -1,0 +1,21 @@
+# Image Viewer & Cropper - Requirements
+# Compatible with Python 3.8+ through Python 3.12+
+
+# Core image processing library - latest stable version
+Pillow>=10.0.0,<12.0.0
+
+# Note: tkinter is included with most Python installations
+# If tkinter is not available, install python-tk package:
+# - Ubuntu/Debian: sudo apt-get install python3-tk
+# - CentOS/RHEL/Fedora: sudo dnf install python3-tkinter
+# - Arch Linux: sudo pacman -S tk
+# - macOS: brew install python-tk (if using Homebrew Python)
+# - Windows: tkinter is included with Python
+
+# Development dependencies (optional, uncomment if needed)
+# black>=23.0.0           # Code formatting
+# mypy>=1.5.0             # Type checking
+# flake8>=6.0.0           # Linting
+
+# Platform-specific performance enhancements (optional)
+# pywin32>=306; sys_platform == "win32"  # Windows-specific features
